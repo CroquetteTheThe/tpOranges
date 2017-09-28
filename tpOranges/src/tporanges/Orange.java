@@ -24,6 +24,8 @@ public class Orange {
         this.prix = prix;
         this.origin = origin;
     }
+    
+    
 
     public void setOrigin(String origin) {
         this.origin = origin;

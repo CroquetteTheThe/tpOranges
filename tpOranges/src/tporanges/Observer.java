@@ -5,22 +5,12 @@
  */
 package tporanges;
 
-
-
 /**
  *
  * @author dl112695
  */
-public class TpOranges {
+public interface Observer {
 
-    /**
-     * @param args the command line arguments
-     */
-    
-    public static void main(String[] args) {
-        
-        
-        
-    }
-    
+  public void update(String str);
+
 }
