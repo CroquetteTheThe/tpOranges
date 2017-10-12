@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Panier.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpOranges&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tporanges</a> &gt; <span class="el_source">Panier.java</span></div><h1>Panier.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tporanges;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.lang.Exception;
+import java.util.Iterator;
+
+/**
+ *
+ * @author dl112695
+ */
+public class Panier {
+    private List&lt;Orange&gt; panier;
+    private int size_max;
+
+<span class="nc" id="L21">    public Panier(int size) {</span>
+<span class="nc" id="L22">        this.size_max = size;</span>
+<span class="nc" id="L23">        this.panier = new ArrayList&lt;&gt;(size);</span>
+<span class="nc" id="L24">    }</span>
+
+    public Panier() {
+<span class="nc" id="L27">        this(0);</span>
+<span class="nc" id="L28">    }</span>
+    
+    
+    @Override
+    public String toString() {
+<span class="nc" id="L33">        return &quot;size_max = &quot; + this.size_max + &quot;: &quot; + this.panier.toString(); //To change body of generated methods, choose Tools | Templates.</span>
+    }
+
+    @Override
+    public boolean equals (Object obj){
+<span class="nc bnc" id="L38" title="All 4 branches missed.">        if (obj!= null &amp;&amp; (obj.getClass().equals(this.getClass()))){</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            if (obj instanceof Panier){</span>
+<span class="nc" id="L40">                Panier pers = (Panier)obj;</span>
+<span class="nc bnc" id="L41" title="All 4 branches missed.">                return (this.panier.equals(pers.panier) &amp;&amp;</span>
+                    this.size_max == pers.size_max);
+            }
+        }
+<span class="nc" id="L45">        return false;</span>
+    }
+    
+    
+    
+    public void addOrange(Orange o) throws Exception {
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (panier.size() == size_max) throw new Exception(&quot;Panier is full&quot;);</span>
+<span class="nc" id="L52">        panier.add(o);</span>
+<span class="nc" id="L53">    }</span>
+    
+    public void removeLast() {
+<span class="nc" id="L56">        this.panier.remove(this.panier.size()-1);</span>
+<span class="nc" id="L57">    }</span>
+    
+    public boolean isEmpty() {
+<span class="nc" id="L60">        return this.panier.isEmpty();</span>
+    }
+    
+    public boolean isFull() {
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        return this.panier.size() == this.size_max;</span>
+    }
+    
+    public int getPrice() {
+<span class="nc" id="L68">        int result = 0;</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        for (Orange o : this.panier) {</span>
+<span class="nc" id="L70">            result += o.getPrix();</span>
+<span class="nc" id="L71">        }</span>
+<span class="nc" id="L72">        return result;</span>
+    }
+    
+    public void boycottOrigin(String origin) {
+<span class="nc" id="L76">        Iterator&lt;Orange&gt; it = this.panier.iterator();</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        while (it.hasNext()) {</span>
+<span class="nc" id="L78">            Orange o = it.next();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">            if (o.getOrigin().equals(origin)) {</span>
+<span class="nc" id="L80">                it.remove();</span>
+            }
+<span class="nc" id="L82">        }</span>
+<span class="nc" id="L83">    }</span>
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

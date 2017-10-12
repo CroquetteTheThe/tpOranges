@@ -10,7 +10,7 @@ package tporanges;
  * @author dl112695
  */
 public class Orange {
-    private int prix;
+    private double prix;
     private String origin;
 
     /**
@@ -19,7 +19,7 @@ public class Orange {
      * @param origin
      * @throws java.lang.Exception
      */
-    public Orange(int prix, String origin) throws Exception {
+    public Orange(double prix, String origin) throws Exception {
         if (prix < 0) throw new Exception("The price is negative");
         this.prix = prix;
         this.origin = origin;
@@ -35,11 +35,11 @@ public class Orange {
         return origin;
     }
 
-    public int getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
     
